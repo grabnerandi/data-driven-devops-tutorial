@@ -13,7 +13,7 @@ The goal of this workshop is to educate on
 
 [Click here to learn more about Dynatrace Log Management and Analytics capabilities](https://www.dynatrace.com/support/help/observe-and-explore/logs/log-management-and-analytics)
 
-![](./images/log-hands-on-overview.png)
+![](./images/traces-handson-overview.png)
 
 ## Hands-On workshop steps WITHIN the Dynatrace Platform
 
@@ -78,6 +78,12 @@ gardnera/tracepusher:v0.8.0 \
  --service-name "workshop-service-$(hostname)" \
  --span-name "demorequest" \
  --duration ${duration} \
- --span-kind SERVER" \
+ --span-kind SERVER \
  --span-attributes rpc.service="execute" rpc.method="get"
+```
+
+There is also a script that generates a more complex trace with subspans as well as with a log that is connected with the trace.
+To generate that execute this:
+```
+./tracegen.sh
 ```

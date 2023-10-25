@@ -22,7 +22,7 @@ do
 
   tracepusher \
     --endpoint=http://localhost:4318 \
-    --service-name "workshop-service-$(hostname)" \    
+    --service-name "workshop-service-$(hostname)" \
     --span-name "subspan${counter}" \
     --duration ${duration} \
     --trace-id ${trace_id} \
@@ -47,9 +47,18 @@ tracepusher \
   --trace-id ${trace_id} \
   --span-id ${span_id} \
   --time-shift True \
-  --span-kind SERVER" \
+  --span-kind SERVER \
   --span-attributes app=tracegen.sh
 
+# also sending a log message in context of that trace
+docker run --network host \
+gardnera/logpusher:v0.1.0 \
+ --endpoint http://0.0.0.0:4318 \
+ --content "Log in Context of Trace" \
+ --trace-id ${trace_id} \
+ --span-id ${span_id} \
+ --attributes host="$(hostname)" log.source="/var/log/workshop.log" log.level="ERROR"
+  
 echo "================================="
 echo "tracegen.sh completed successfully."
 echo "================================="
