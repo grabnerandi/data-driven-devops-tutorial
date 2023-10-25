@@ -1,15 +1,20 @@
 # Data Driven DevOps Done Right with Dynatrace
 This is a tutorial material for the workshop series on Data Driven DevOps & Platform Engineering with Dynatrace.
+
+**Got feedback or questions?**: [devrel@dynatrace.com](mailto:devrel@dynatrace.com?subject=DataDrivenDevOps%20Logs%20HandsOn)
+
 The goal of this workshop is to educate on
 - INGEST observability data (logs, traces, metrics ..) using OpenTelemetry, Log API or Dynatrace OneAgent
 - ANALYZE and COLLABORATE on data using Dynatrace Notebooke
 - AUTOMATE based on that this data
 
+[Click here to learn more about Dynatrace Log Management and Analytics capabilities](https://www.dynatrace.com/support/help/observe-and-explore/logs/log-management-and-analytics)
+
 ![](./images/log-hands-on-overview.png)
 
 ## Hands-On workshop steps WITHIN the Dynatrace Platform
 
-We have this [Dynatrace Notebook] that contains all step-by-step instructions that workshp attendees can do within the Dynatrace platform. 
+We have this [Dynatrace Notebook](./notebooks/Data%20Driven%20DevOps%20Hands%20On%20for%20Logs_%20Ingest,%20Analyze,%20Automate%20(grabnerandi).json) that contains all step-by-step instructions that workshp attendees can do within the Dynatrace platform. 
 You will either be given a link to this Notebook in the Workshop Environment or you can simply download the Notebook and Import it into your own Dynatrace Tenant!
 
 For sending in data from outside the platform please follow the steps further down in this readme.
