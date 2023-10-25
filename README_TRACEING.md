@@ -1,7 +1,10 @@
-# Data Driven DevOps Done Right with Dynatrace - Hands On for Tracing
+# Data Driven DevOps Done Right with Dynatrace
+For the logs workshop please see [Hands-On Logs](README.md)
+
+## Hands On for Tracing
 This is a tutorial material for the workshop series on Data Driven DevOps & Platform Engineering with Dynatrace.
 
-**Got feedback or questions?**: [devrel@dynatrace.com](mailto:devrel@dynatrace.com?subject=DataDrivenDevOps%20Logs%20HandsOn)
+**Got feedback or questions?**: [devrel@dynatrace.com](mailto:devrel@dynatrace.com?subject=DataDrivenDevOps%20Traces%20HandsOn)
 
 The goal of this workshop is to educate on
 - INGEST observability data (logs, traces, metrics ..) using OpenTelemetry, Log API or Dynatrace OneAgent
