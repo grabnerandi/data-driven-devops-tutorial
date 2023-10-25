@@ -1,4 +1,4 @@
-# Data Driven DevOps Done Right with Dynatrace - Hands-On for Logs
+# Data Driven DevOps Done Right with Dynatrace - Hands On for Tracing
 This is a tutorial material for the workshop series on Data Driven DevOps & Platform Engineering with Dynatrace.
 
 **Got feedback or questions?**: [devrel@dynatrace.com](mailto:devrel@dynatrace.com?subject=DataDrivenDevOps%20Logs%20HandsOn)
@@ -54,25 +54,27 @@ Simple launch the collector which was downloaded by the on-create.sh script like
 
 ![](./images/otelcol-launched.png)
 
-## Hands-On Tutorial: Sending Logs via OpenTelemetry
+## Hands-On Tutorial: Sending Traces via OpenTelemetry
 
-There are different ways to now send logs to the OpenTelemetry collector. Typically this is done by the application that you have instrumented with OpenTelemetry or you can use tools such as FluentD or FluentBit to capture logs and send them to the collector.
+Typically your applications instrumented with OpenTelemetry would send trace information to your OpenTelemetry collector which then forwards it to e.g: Dynatrace.
+There are also other tools in the CI/CD space (Jenkins, GitLab, GitHub ...) that provide OpenTelemetry plugins or extensions to create traces everytime a job or a pipeline is executed.
 
-**DISCLAIMER: Logpusher is just a tool for demo purposes**
-In our hands-on we will use an open source helper tool that is called [Logpusher from Adam Gardner](https://github.com/agardnerit/logpusher). 
+**DISCLAIMER: Tracepusher is just a tool for demo purposes**
+In our hands-on we will use an open source helper tool that is called [Tracepusher from Adam Gardner](https://github.com/agardnerit/tracepusher). 
 
-The docker container from Logpusher has already been downloaded. We can now execute the following command that will create a log entry that matches the pattern of the hands-on you have probably aready done in the Dynatrace Notebook!
+The docker container and the standalone binary from Tracepusher has already been downloaded. We can now execute the following command that will create traces for a particular service with additional span attributes
 
 ```
+time_start=$SECONDS
+sleep 1
+time_end=$SECONDS
+duration=$(( $time_end - $time_start ))
 docker run --network host \
-gardnera/logpusher:v0.1.0 \
+gardnera/tracepusher:v0.8.0 \
  --endpoint http://0.0.0.0:4318 \
- --content "Deposit EUR $(($RANDOM%1000)) $(hostname)" \
- --attributes user="${MYNAME}" log.source="/var/log/workshop.log" log.level="INFO"
-
-docker run --network host \
-gardnera/logpusher:v0.1.0 \
- --endpoint http://0.0.0.0:4318 \
- --content "Withdraw EUR $(($RANDOM%1000)) $(hostname)" \
- --attributes user="${MYNAME}" log.source="/var/log/workshop.log" log.level="INFO"
+ --service-name "workshop-service-$(hostname)" \
+ --span-name "demorequest" \
+ --duration ${duration} \
+ --span-kind SERVER" \
+ --span-attributes rpc.service="execute" rpc.method="get"
 ```
