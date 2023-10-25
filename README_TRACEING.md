@@ -11,13 +11,13 @@ The goal of this workshop is to educate on
 - ANALYZE and COLLABORATE on data using Dynatrace Notebooke
 - AUTOMATE based on that this data
 
-[Click here to learn more about Dynatrace Log Management and Analytics capabilities](https://www.dynatrace.com/support/help/observe-and-explore/logs/log-management-and-analytics)
+[Click here to learn more about Dynatrace Distributed Trace capabilities](https://www.dynatrace.com/support/help/observe-and-explore/purepath-distributed-traces/distributed-traces-overview)
 
 ![](./images/traces-handson-overview.png)
 
 ## Hands-On workshop steps WITHIN the Dynatrace Platform
 
-We have this [Dynatrace Notebook](./notebooks/Data%20Driven%20DevOps%20Hands%20On%20for%20Logs_%20Ingest,%20Analyze,%20Automate%20(grabnerandi).json) that contains all step-by-step instructions that workshp attendees can do within the Dynatrace platform. 
+We have this [Dynatrace Notebook](./notebooks/Data%20Driven%20DevOps%20On%20Hands%20for%20Traces_%20Ingest,%20Analyze,%20Automate%20(grabnerandi).json) that contains all step-by-step instructions that workshp attendees can do within the Dynatrace platform. 
 You will either be given a link to this Notebook in the Workshop Environment or you can simply download the Notebook and Import it into your own Dynatrace Tenant!
 
 For sending in data from outside the platform please follow the steps further down in this readme.
@@ -34,7 +34,7 @@ If you decide to use your own laptop or virtual machine then clone this reposito
 
 ### Step 2b: Launch Codespaces or GitPod
 To make things easier we can just create a Codespace or use a service such as GitPod which will create a VM for you and will then execute the on-create.sh scripts automatically.
-Later on we will need to uniquly identify our log entries. There please export your name (can be real or made up) in the USER env variable - like this:
+Later on we will need to uniquly identify our traces entries. There please export your name (can be real or made up) in the USER env variable - like this:
 ```
 MYNAME="Ruler of OpenTelemetry"
 ```
