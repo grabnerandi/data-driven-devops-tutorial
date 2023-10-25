@@ -5,6 +5,15 @@ The goal of this workshop is to educate on
 - ANALYZE and COLLABORATE on data using Dynatrace Notebooke
 - AUTOMATE based on that this data
 
+![](./images/log-hands-on-overview.png)
+
+## Hands-On workshop steps WITHIN the Dynatrace Platform
+
+We have this [Dynatrace Notebook] that contains all step-by-step instructions that workshp attendees can do within the Dynatrace platform. 
+You will either be given a link to this Notebook in the Workshop Environment or you can simply download the Notebook and Import it into your own Dynatrace Tenant!
+
+For sending in data from outside the platform please follow the steps further down in this readme.
+
 ## Preparation for Hands-On steps outside of Dynatrace Platform
 
 Some of our hands-on will require us to send in data from an external machine, e.g: your workstation, a virtual machine, a GitHub Codespace or GitPod.
