@@ -1,4 +1,8 @@
-# Data Driven DevOps Done Right with Dynatrace - Hands-On for Logs
+# Data Driven DevOps Done Right with Dynatrace
+
+For the traces workshop please see [Hands-On Tracing ](README_TRACEING.md)
+
+## Hands-On for Logs
 This is a tutorial material for the workshop series on Data Driven DevOps & Platform Engineering with Dynatrace.
 
 **Got feedback or questions?**: [devrel@dynatrace.com](mailto:devrel@dynatrace.com?subject=DataDrivenDevOps%20Logs%20HandsOn)
