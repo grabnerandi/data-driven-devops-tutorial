@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simplenode
-  namespace: simplenode-REPLACEWITHYOURID
+  name: simplenode-deployment
 spec:
   replicas: 1
   strategy:
