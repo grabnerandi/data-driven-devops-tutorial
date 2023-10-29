@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   rules:
-    - host: simplenode-dev.agrabner-hotday.keptn.sh
+    - host: simplenode-agrabner.agrabner-hotday.keptn.sh
       http:
         paths:
           - path: /
