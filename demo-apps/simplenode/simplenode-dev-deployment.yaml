@@ -17,7 +17,7 @@ spec:
         app: simplenode
         app.kubernetes.io/name: simplenodeservice
         app.kubernetes.io/version: 1.0.2   # choose from version 1.0.2, 2.0.2, 3.0.2, 4.0.2
-        dt.owner: team-workshop-REPLACEWITHYOURID
+        dt.owner: team-workshop-agrabner
 
         # Following are suggestions for bringing more observability as code to your Deployment CRDs
         dt.notify: "true"
