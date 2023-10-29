@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simplenode
-  namespace: simplenode-dev
+  namespace: simplenode-REPLACEWITHYOURID
 spec:
   replicas: 1
   strategy:
@@ -17,7 +17,14 @@ spec:
       labels:
         app: simplenode
         app.kubernetes.io/name: simplenodeservice
-        app.kubernetes.io/version: 1.0.2
+        app.kubernetes.io/version: 1.0.2   # choose from version 1.0.2, 2.0.2, 3.0.2, 4.0.2
+        dt.owner: team-workshop-REPLACEWITHYOURIDE
+
+        # Following are suggestions for bringing more observability as code to your Deployment CRDs
+        dt.notify: true
+        dt.synthetics: true
+        dt.slo.availability.target: "95"
+        dt.slo.availability.warning: "98"        
       annotations:
         # keptn.sh/app: simpleapp
         # keptn.sh/workload: simplenode
