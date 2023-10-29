@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simplenode
-  namespace: simplenode-REPLACEWITHYOURID
+  name: simplenode-deployment
 spec:
   replicas: 1
   strategy:
@@ -18,7 +17,7 @@ spec:
         app: simplenode
         app.kubernetes.io/name: simplenodeservice
         app.kubernetes.io/version: 1.0.2   # choose from version 1.0.2, 2.0.2, 3.0.2, 4.0.2
-        dt.owner: team-workshop-REPLACEWITHYOURIDE
+        dt.owner: team-workshop-REPLACEWITHYOURID
 
         # Following are suggestions for bringing more observability as code to your Deployment CRDs
         dt.notify: "true"
@@ -36,7 +35,7 @@ spec:
     spec:
       containers:
       - name: simplenode
-        image: "grabnerandi/simplenodeservice:1.0.2"
+        image: "grabnerandi/simplenodeservice:1.0.2" # choose from version 1.0.2, 2.0.2, 3.0.2, 4.0.2
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
