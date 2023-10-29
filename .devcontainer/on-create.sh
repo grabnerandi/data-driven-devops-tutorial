@@ -13,10 +13,12 @@ rm otelcol-contrib_${OTELCOL_VERSION}_linux_amd64.tar.gz
 # Download Log & Trace Pusher
 docker pull gardnera/logpusher:${LOGPUSHER_VERSION}
 docker pull gardnera/tracepusher:v${TRACEPUSHER_VERSION}
-
 wget -O tracepusher https://github.com/agardnerIT/tracepusher/releases/download/${TRACEPUSHER_VERSION}/tracepusher_linux_x64_${TRACEPUSHER_VERSION}
 chmod +x tracepusher
 mv tracepusher /usr/local/bin
+
+# Modify scripts
+chmod +x tracegen.sh
 
 
 echo "# ---------------------------------------------#"
