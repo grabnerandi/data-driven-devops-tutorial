@@ -8,7 +8,7 @@ metadata:
   name: oteldemoapp
   annotations:
     keptn.sh/lifecycle-toolkit: "enabled"  # this lines tells the webhook to handle the namespace
-
+---
 # Source: opentelemetry-demo/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
