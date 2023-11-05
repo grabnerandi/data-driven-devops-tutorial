@@ -9,13 +9,13 @@ metadata:
   annotations:
     keptn.sh/lifecycle-toolkit: "enabled"  # this lines tells the webhook to handle the namespace
 ---
+
 # Source: opentelemetry-demo/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: opentelemetry-demo
-  labels:
-    
+  labels:    
     opentelemetry.io/name: opentelemetry-demo
     app.kubernetes.io/instance: opentelemetry-demo
     app.kubernetes.io/name: opentelemetry-demo
@@ -425,6 +425,7 @@ kind: Deployment
 metadata:
   name: opentelemetry-demo-accountingservice
   labels:
+    
     opentelemetry.io/name: opentelemetry-demo-accountingservice
     app.kubernetes.io/instance: opentelemetry-demo
     app.kubernetes.io/component: accountingservice
@@ -438,8 +439,7 @@ spec:
       opentelemetry.io/name: opentelemetry-demo-accountingservice
   template:
     metadata:
-      labels:
-        
+      labels:        
         opentelemetry.io/name: opentelemetry-demo-accountingservice
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: accountingservice
@@ -497,10 +497,12 @@ metadata:
 spec:
   selector:
     matchLabels:
+      
       opentelemetry.io/name: opentelemetry-demo-adservice
   template:
     metadata:
       labels:
+        
         opentelemetry.io/name: opentelemetry-demo-adservice
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: adservice
@@ -508,6 +510,7 @@ spec:
         app.kubernetes.io/version: "1.5.0"
         app.kubernetes.io/part-of: opentelemetry-demo
         dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -568,6 +571,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: cartservice
         app.kubernetes.io/name: opentelemetry-demo-cartservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -638,6 +645,9 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: checkoutservice
         app.kubernetes.io/name: opentelemetry-demo-checkoutservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -716,6 +726,9 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: currencyservice
         app.kubernetes.io/name: opentelemetry-demo-currencyservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -772,6 +785,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: emailservice
         app.kubernetes.io/name: opentelemetry-demo-emailservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -830,6 +847,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: featureflagservice
         app.kubernetes.io/name: opentelemetry-demo-featureflagservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -894,7 +915,7 @@ metadata:
     app.kubernetes.io/component: ffspostgres
     app.kubernetes.io/name: opentelemetry-demo-ffspostgres
     app.kubernetes.io/version: "1.5.0"
-    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/part-of: opentelemetry-demo    
 spec:
   selector:
     matchLabels:
@@ -908,6 +929,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: ffspostgres
         app.kubernetes.io/name: opentelemetry-demo-ffspostgres
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -970,6 +995,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: frauddetectionservice
         app.kubernetes.io/name: opentelemetry-demo-frauddetectionservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1030,6 +1059,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: frontend
         app.kubernetes.io/name: opentelemetry-demo-frontend
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1110,6 +1143,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: frontendproxy
         app.kubernetes.io/name: opentelemetry-demo-frontendproxy
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1186,6 +1223,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: kafka
         app.kubernetes.io/name: opentelemetry-demo-kafka
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1250,6 +1291,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: loadgenerator
         app.kubernetes.io/name: opentelemetry-demo-loadgenerator
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1318,6 +1363,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: paymentservice
         app.kubernetes.io/name: opentelemetry-demo-paymentservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1378,6 +1427,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: productcatalogservice
         app.kubernetes.io/name: opentelemetry-demo-productcatalogservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1436,6 +1489,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: quoteservice
         app.kubernetes.io/name: opentelemetry-demo-quoteservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1498,6 +1555,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: recommendationservice
         app.kubernetes.io/name: opentelemetry-demo-recommendationservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1562,6 +1623,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: redis
         app.kubernetes.io/name: opentelemetry-demo-redis
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -1618,6 +1683,10 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: shippingservice
         app.kubernetes.io/name: opentelemetry-demo-shippingservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
+
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
