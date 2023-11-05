@@ -425,7 +425,6 @@ kind: Deployment
 metadata:
   name: opentelemetry-demo-accountingservice
   labels:
-    
     opentelemetry.io/name: opentelemetry-demo-accountingservice
     app.kubernetes.io/instance: opentelemetry-demo
     app.kubernetes.io/component: accountingservice
@@ -445,6 +444,9 @@ spec:
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: accountingservice
         app.kubernetes.io/name: opentelemetry-demo-accountingservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
@@ -495,16 +497,17 @@ metadata:
 spec:
   selector:
     matchLabels:
-      
       opentelemetry.io/name: opentelemetry-demo-adservice
   template:
     metadata:
       labels:
-        
         opentelemetry.io/name: opentelemetry-demo-adservice
         app.kubernetes.io/instance: opentelemetry-demo
         app.kubernetes.io/component: adservice
         app.kubernetes.io/name: opentelemetry-demo-adservice
+        app.kubernetes.io/version: "1.5.0"
+        app.kubernetes.io/part-of: opentelemetry-demo
+        dt.owner: oteldemo-team
     spec:
       serviceAccountName: opentelemetry-demo
       containers:
