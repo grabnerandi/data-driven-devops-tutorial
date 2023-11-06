@@ -213,29 +213,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: opentelemetry-demo-frontendproxy
-  labels:
-    
-    opentelemetry.io/name: opentelemetry-demo-frontendproxy
-    app.kubernetes.io/instance: opentelemetry-demo
-    app.kubernetes.io/component: frontendproxy
-    app.kubernetes.io/name: opentelemetry-demo-frontendproxy
-    app.kubernetes.io/version: "1.5.0"
-    app.kubernetes.io/part-of: opentelemetry-demo
-spec:
-  type: ClusterIP
-  ports:
-    - port: 8080
-      name: tcp-service
-      targetPort: 8080
-  selector:
-    
-    opentelemetry.io/name: opentelemetry-demo-frontendproxy
----
-# Source: opentelemetry-demo/templates/component.yaml
-apiVersion: v1
-kind: Service
-metadata:
   name: opentelemetry-demo-kafka
   labels:
     
@@ -1121,86 +1098,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: opentelemetry-demo-frontendproxy
-  labels:
-    
-    opentelemetry.io/name: opentelemetry-demo-frontendproxy
-    app.kubernetes.io/instance: opentelemetry-demo
-    app.kubernetes.io/component: frontendproxy
-    app.kubernetes.io/name: opentelemetry-demo-frontendproxy
-    app.kubernetes.io/version: "1.5.0"
-    app.kubernetes.io/part-of: opentelemetry-demo
-spec:
-  selector:
-    matchLabels:
-      
-      opentelemetry.io/name: opentelemetry-demo-frontendproxy
-  template:
-    metadata:
-      labels:
-        
-        opentelemetry.io/name: opentelemetry-demo-frontendproxy
-        app.kubernetes.io/instance: opentelemetry-demo
-        app.kubernetes.io/component: frontendproxy
-        app.kubernetes.io/name: opentelemetry-demo-frontendproxy
-        app.kubernetes.io/version: "1.5.0"
-        app.kubernetes.io/part-of: opentelemetry-demo
-        dt.owner: oteldemo-team
-
-    spec:
-      serviceAccountName: opentelemetry-demo
-      containers:
-        - name: frontendproxy
-          image: 'ghcr.io/open-telemetry/demo:1.5.0-frontendproxy'
-          imagePullPolicy: IfNotPresent
-          ports:
-          
-          - containerPort: 8080
-            name: service
-          env:
-          - name: OTEL_SERVICE_NAME
-            valueFrom:
-              fieldRef:
-                apiVersion: v1
-                fieldPath: metadata.labels['app.kubernetes.io/component']
-          - name: OTEL_COLLECTOR_NAME
-            value: 'otel-collector.opentelemetry.svc.cluster.local'
-          - name: OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
-            value: cumulative
-          - name: ENVOY_PORT
-            value: "8080"
-          - name: FRONTEND_PORT
-            value: "8080"
-          - name: FRONTEND_HOST
-            value: 'opentelemetry-demo-frontend'
-          - name: FEATURE_FLAG_SERVICE_PORT
-            value: "8081"
-          - name: FEATURE_FLAG_SERVICE_HOST
-            value: 'opentelemetry-demo-featureflagservice'
-          - name: LOCUST_WEB_PORT
-            value: "8089"
-          - name: LOCUST_WEB_HOST
-            value: 'opentelemetry-demo-loadgenerator'
-          - name: OTEL_COLLECTOR_PORT_GRPC
-            value: "4317"
-          - name: OTEL_COLLECTOR_PORT_HTTP
-            value: "4318"
-          - name: OTEL_COLLECTOR_HOST
-            value: $(OTEL_COLLECTOR_NAME)
-          - name: OTEL_RESOURCE_ATTRIBUTES
-            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo
-          resources:
-            limits:
-              memory: 50Mi
-          securityContext:
-            runAsGroup: 101
-            runAsNonRoot: true
-            runAsUser: 101
----
-# Source: opentelemetry-demo/templates/component.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: opentelemetry-demo-kafka
   labels:
     
@@ -1322,7 +1219,7 @@ spec:
           - name: LOCUST_SPAWN_RATE
             value: "1"
           - name: LOCUST_HOST
-            value: http://opentelemetry-demo-frontendproxy:8080
+            value: http://opentelemetry-demo-frontend:8080
           - name: LOCUST_HEADLESS
             value: "false"
           - name: LOCUST_AUTOSTART
@@ -1718,3 +1615,24 @@ spec:
           resources:
             limits:
               memory: 20Mi
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simplenode-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+spec:
+  rules:
+    - host: oteldemo.agrabner-hotday.keptn.sh
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name:  opentelemetry-demo-frontend
+                port:
+                  number: 80
