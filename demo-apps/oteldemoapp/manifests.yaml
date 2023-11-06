@@ -1219,7 +1219,7 @@ spec:
           - name: LOCUST_SPAWN_RATE
             value: "1"
           - name: LOCUST_HOST
-            value: http://opentelemetry-demo-frontend:8080
+            value: http://oteldemo.agrabner-hotday.keptn.sh
           - name: LOCUST_HEADLESS
             value: "false"
           - name: LOCUST_AUTOSTART
