@@ -1635,4 +1635,4 @@ spec:
               service:
                 name:  opentelemetry-demo-frontend
                 port:
-                  number: 80
+                  number: 8080
